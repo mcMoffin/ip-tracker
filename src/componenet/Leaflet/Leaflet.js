@@ -1,7 +1,14 @@
-import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import L from 'leaflet';
 
-function Leaflet({ longitude, latitude, IPAddress }) {
-    console.log("Longitude:", longitude, "Latitude:", latitude);
+function Leaflet({ longitude, latitude }) {
+
+    const customIcon = L.icon({
+        iconUrl: `${process.env.PUBLIC_URL}/images/icon-location.svg`,
+        iconSize: [46, 56],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34]
+    });
 
     return (
         <MapContainer
@@ -14,7 +21,7 @@ function Leaflet({ longitude, latitude, IPAddress }) {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[latitude, longitude]}></Marker>
+            <Marker className="marker" position={[latitude, longitude]} icon={customIcon}></Marker>
         </MapContainer>
     );
 }
