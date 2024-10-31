@@ -1,0 +1,67 @@
+@import './style/_variable.scss';
+@import './style/_mixin.scss';
+@import './style/reset';
+
+@import './componenet/Searchbar/searchBar';
+@import './componenet/Leaflet/leafelet';
+@import './componenet/IPDisplay/IPDisplay';
+
+body {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    background: #f8f9fb;
+}
+
+header {
+    width: 100%;
+    height: 300px;
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+
+    position: relative;
+    z-index: 1;
+
+    background-image: url("../public/images/pattern-bg-desktop.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+
+    .header-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 27px;
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .IPDataBar {
+            flex: 0 1 0;
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    header {
+        height: 280px;
+
+        .header-content {
+            height: 161px;
+
+            h1 {
+                font-size: 31px;
+                font-weight: 500;
+            }
+        }
+    }
+}

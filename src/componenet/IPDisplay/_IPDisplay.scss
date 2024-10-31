@@ -1,0 +1,70 @@
+.IPDataBar {
+    width: calc(100% - 48px);
+    height: 550px;
+    position: relative;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    z-index: 2;
+    border: 0 solid;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+
+    div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 7px;
+
+        .display-title {
+            letter-spacing: 2.5px;
+            font-size: 11px;
+            color: $Dark-Gray;
+        }
+
+        .display-data {
+            font-weight: 500;
+        }
+    }
+
+}
+
+@media (min-width: 1440px) {
+    .IPDataBar {
+        width: 1110px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: start;
+        padding: 33px 37px;
+        gap: auto;
+
+        div {
+            justify-content: left;
+            align-items: start;
+            gap: 6;
+
+            .display-title {
+                font-size: 11px;
+                font-weight: 700;
+            }
+
+            .display-data {
+                font-size: 26px;
+                font-weight: 500;
+                letter-spacing: -1px;
+                line-height: 42px;
+            }
+
+            &:not(:last-child) {
+                margin-right: 10px;
+                border-right: 2px solid $Dark-Gray;
+            }
+        }
+    }
+}

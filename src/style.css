@@ -1,0 +1,198 @@
+/* Reset default styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset default font styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* Reset default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Reset default anchor styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset default button styles */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Reset default form element styles */
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Reset default image styles */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.searchBar {
+  width: 100%;
+  max-width: 555px;
+  display: flex;
+  justify-content: center;
+}
+.searchBar input {
+  width: 100%;
+  height: 58px;
+  padding: 24px;
+  border: 0 solid;
+  border-radius: 14px 0 0 14px;
+  cursor: pointer;
+}
+.searchBar button {
+  width: 58px;
+  height: 58px;
+  border: 0 solid;
+  border-radius: 0 14px 14px 0;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+.searchBar button:hover {
+  background-color: #3F3F3F;
+  cursor: pointer;
+}
+
+.map {
+  width: 100%;
+  height: calc(100vh - 280px) !important;
+  z-index: 0;
+}
+
+.IPDataBar {
+  width: calc(100% - 48px);
+  height: 550px;
+  position: relative;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  z-index: 2;
+  border: 0 solid;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+.IPDataBar div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 7px;
+}
+.IPDataBar div .display-title {
+  letter-spacing: 2.5px;
+  font-size: 11px;
+  color: hsl(0, 0%, 59%);
+}
+.IPDataBar div .display-data {
+  font-weight: 500;
+}
+
+@media (min-width: 1440px) {
+  .IPDataBar {
+    width: 1110px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: start;
+    padding: 33px 37px;
+    gap: auto;
+  }
+  .IPDataBar div {
+    justify-content: left;
+    align-items: start;
+    gap: 6;
+  }
+  .IPDataBar div .display-title {
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .IPDataBar div .display-data {
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    line-height: 42px;
+  }
+  .IPDataBar div:not(:last-child) {
+    margin-right: 10px;
+    border-right: 2px solid hsl(0, 0%, 59%);
+  }
+}
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  background: #f8f9fb;
+}
+
+header {
+  width: 100%;
+  height: 300px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  z-index: 1;
+  background-image: url("../public/images/pattern-bg-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+header .header-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+}
+header .header-content h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+}
+header .header-content .IPDataBar {
+  flex: 0 1 0;
+}
+
+@media (min-width: 1440px) {
+  header {
+    height: 280px;
+  }
+  header .header-content {
+    height: 161px;
+  }
+  header .header-content h1 {
+    font-size: 31px;
+    font-weight: 500;
+  }
+}/*# sourceMappingURL=style.css.map */

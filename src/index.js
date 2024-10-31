@@ -1,17 +1,64 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './style.css'
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import SearchBar from './componenet/Searchbar/SearchBar'
+import Leaflet from './componenet/Leaflet/Leaflet';
+import IPDisplay from './componenet/IPDisplay/IPDisplay';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+const App = () => {
+  const [IPAddress, setIPAddress] = useState('');
+  const [IPInfo, setIPInfo] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(`https://ipapi.co/${IPAddress !== '' ? IPAddress : ''}/json/`)
+    .then(function(response) {
+      response.json().then(jsonData => {
+        setIPAddress(jsonData.ip);
+        setIPInfo(jsonData);
+        setIsLoading(false);
+      });
+    })
+    .catch(function(error) {
+      console.log(error)
+    });
+
+  }, [IPAddress])
+  
+  // Validate latitude and longitude
+  const isValidLatLng = (lat, lng) => {
+    return !isNaN(lat) && lat >= -90 && lat <= 90 && !isNaN(lng) && lng >= -180 && lng <= 180;
+  };
+
+  const validLatLng = isValidLatLng(IPInfo.latitude, IPInfo.longitude);
+  console.log("Is valid LatLng:", validLatLng);
+
+  return (
+    <React.StrictMode>
+      <header>
+        <div className='header-content'>
+          <h1>IP Address Tracker</h1>
+          <SearchBar user_ip={IPAddress} setIPAddress={setIPAddress}/>
+        </div>
+        <IPDisplay IPData={IPInfo}/>
+      </header>
+      
+      {IPInfo.latitude && IPInfo.longitude && validLatLng ? (
+        <Leaflet
+          longitude={IPInfo.longitude}
+          latitude={IPInfo.latitude}
+          IPAddress={IPAddress}
+        />
+      ) : (
+        <div>Loading...</div>
+      )}
+    </React.StrictMode>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
 reportWebVitals();
