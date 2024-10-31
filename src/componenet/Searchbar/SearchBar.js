@@ -12,7 +12,11 @@ function SearchBar({user_ip, searchQuery, setIPAddress}) {
                 name="IPSearch"
                 placeholder={user_ip}
             ></input>
-            <button type='submit'> {'>'} </button>
+            <button type='submit'>
+                <img
+                    src={`${process.env.PUBLIC_URL}/images/icon-arrow.svg`}
+                />
+            </button>
         </form>
     );
 }

@@ -10,20 +10,17 @@ import IPDisplay from './componenet/IPDisplay/IPDisplay';
 const App = () => {
   const [IPAddress, setIPAddress] = useState('');
   const [IPInfo, setIPInfo] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     fetch(`https://ipapi.co/${IPAddress !== '' ? IPAddress : ''}/json/`)
     .then(function(response) {
       response.json().then(jsonData => {
         setIPAddress(jsonData.ip);
         setIPInfo(jsonData);
-        setIsLoading(false);
       });
     })
     .catch(function(error) {
-      console.log(error)
+      console.log(error);
     });
 
   }, [IPAddress])
@@ -34,7 +31,6 @@ const App = () => {
   };
 
   const validLatLng = isValidLatLng(IPInfo.latitude, IPInfo.longitude);
-  console.log("Is valid LatLng:", validLatLng);
 
   return (
     <React.StrictMode>

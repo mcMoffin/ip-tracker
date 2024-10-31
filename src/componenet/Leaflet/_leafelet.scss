@@ -2,4 +2,9 @@
     width: 100%;
     height: calc(100vh - 280px) !important;
     z-index: 0;
+
+    .marker{
+        display: block;
+        background-image: url("../public/images/pattern-bg-desktop.png");
+    }
 }

@@ -20,7 +20,13 @@
         border-radius: 0 14px 14px 0;
         background-color: #000;
         color: #fff;
-        padding: 10px;
+        padding: 22px;
+
+        .img {
+            background: #ff0000;
+            width: 20px;
+            height: 20px;
+        }
     }
 
     button:hover {
