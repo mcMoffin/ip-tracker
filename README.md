@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# Frontend Mentor - IP address tracker solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-### `npm start`
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### The challenge
 
-### `npm test`
+Users should be able to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements on the page
+- See their own IP address on the map on the initial page load
+- Search for any IP addresses or domains and see the key information and location
 
-### `npm run build`
+### Screenshot
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![./ScreenShots/Web-view-default.JPG]
+![./ScreenShots/Web-hover-&-new-location.JPG]
+![./ScreenShots/mobile-view-default.JPG]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Links
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-### `npm run eject`
+## My process
+I started with installing React and breaking down the project into components. Then worked on getting the leaflet component to display the the API was intuitive so it had no isues delivering the data that was submitted. once the components assembled and working, I worked on getting the styles implemented, using a mobile first approach. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Built with
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [SCSS](https://sass-lang.com/) - CSS Processore
+- [React Leaflet](https://react-leaflet.js.org/docs/api-map/) - Leaflet Library
+- [LeafletJS](https://leafletjs.com/) - JS Library
+- [IPAPI](https://ipapi.co/#api) - Free, keyless IP Api
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### What I learned
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+I had trouble getting an account for IP Geolocation, I found a Keyless API that does the same thing without creating an account. So I learned about keyless APIs, I how to better handle fetch requests, proper validation to avoid the latlng error and react's asynchronous behavior. because of how React works it rendered the Leafelet before the API sends the data, as such I had to add a conditional render that renders only after the data has been recived and validated.
 
-## Learn More
+To see how you can add code snippets, see below:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```html
+<h1>Some HTML code I'm proud of</h1>
+```
+```css
+.proud-of-this-css {
+  color: papayawhip;
+}
+```
+```js
+const [IPAddress, setIPAddress] = useState('');
+...some code
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+// Validate latitude and longitude
+  const isValidLatLng = (lat, lng) => {
+    return !isNaN(lat) && lat >= -90 && lat <= 90 && !isNaN(lng) && lng >= -180 && lng <= 180;
+  };
 
-### Code Splitting
+  const validLatLng = isValidLatLng(IPInfo.latitude, IPInfo.longitude);
+  return (
+      <React.StrictMode>
+        ... some code
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+        // conditional render
+        {IPInfo.latitude && IPInfo.longitude && validLatLng ? (
+                <Leaflet
+                  longitude={IPInfo.longitude}
+                  latitude={IPInfo.latitude}
+                  IPAddress={IPAddress}
+                />
+              ) : (
+                <div>Loading...</div>
+              )}
+```
 
-### Analyzing the Bundle Size
+### Continued development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Still trying to work on how to improve my clean code writing to minimise errors.
 
-### Making a Progressive Web App
+**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Useful resources
 
-### Advanced Configuration
+- [React Docs](https://react.dev/reference/react) - This helped me to better understand sertain hooks and react. I really liked this pattern and will use it going forward.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Author
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Website - [Add your name here](https://www.your-site.com)
+- Frontend Mentor - [@mcMoffin](https://www.frontendmentor.io/profile/mcMoffin)
+- LinkedIn - [Ruildo](https://www.linkedin.com/in/ruildo-dcl/)
+- Web Portfolio -[Portfolio](https://ruildodcl.ca/)
