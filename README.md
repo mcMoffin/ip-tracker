@@ -30,13 +30,13 @@ Users should be able to:
 
 ### Screenshot
 
-![./ScreenShots/Web-view-default.JPG]
-![./ScreenShots/Web-hover-&-new-location.JPG]
-![./ScreenShots/mobile-view-default.JPG]
+![Default web view](./ScreenShots/Web-view-default.JPG)
+![Hover state web view](./ScreenShots/Web-hover-&-new-location.JPG)
+![Default mobile view](./ScreenShots/mobile-view-default.JPG)
 
 ### Links
 
-- Solution URL: (https://mcmoffin.github.io/ip-tracker.github.io/)
+- Solution URL: (https://github.com/mcMoffin/ip-tracker.github.io/tree/master)
 - Live Site URL: (https://mcmoffin.github.io/ip-tracker.github.io/)
 
 ## My process
