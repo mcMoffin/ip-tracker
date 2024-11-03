@@ -37,7 +37,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: (https://github.com/mcMoffin/ip-tracker.github.io/tree/master)
-- Live Site URL: (https://mcmoffin.github.io/ip-tracker.github.io/)
+- Live Site URL: (  https://mcmoffin.github.io/ip-tracker/)
 
 ## My process
 I started with installing React and breaking down the project into components. Then worked on getting the leaflet component to display the the API was intuitive so it had no isues delivering the data that was submitted. once the components assembled and working, I worked on getting the styles implemented, using a mobile first approach. 
